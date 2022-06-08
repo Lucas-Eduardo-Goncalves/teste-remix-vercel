@@ -18,8 +18,15 @@ import {
   SignOutButtonForm,
 } from "./styles";
 import { ClientOnly } from "remix-utils";
+import { SimpleModal } from "~/components/SimpleModal";
+import { useState } from "react";
+import { ModalContent } from "../components/ModalContent";
 
 export function RoomComponent({ userRole, roomData, userCredentials }: IRoomComponent) {
+  const [ isOpen, setIsOpen ] = useState(false);
+  const onOpen = () => setIsOpen(true);
+  const onClose = () => setIsOpen(false);
+
   return (
     <Container>
       <Header>
@@ -43,6 +50,7 @@ export function RoomComponent({ userRole, roomData, userCredentials }: IRoomComp
               rotate: 180,
               transition: { duration: 0.4 },
             }}
+            onClick={onOpen}
           >
             <GearSix fontSize="1.5rem" />
           </ConfigGameButton>
@@ -93,6 +101,19 @@ export function RoomComponent({ userRole, roomData, userCredentials }: IRoomComp
       </Content>
 
       <DeckArea cardsDisabled={roomData.roomConfig.viewCards}/>
+      
+      <SimpleModal 
+        isOpen={isOpen} 
+        onClose={onClose}
+      >
+        <ModalContent 
+          defaultValues={{
+            adminEmail: roomData.roomAdmin.email, 
+            roomName: roomData.roomInfo.roomName, 
+            votingSystem: "Fibonacci" 
+          }} 
+        />
+      </SimpleModal>
     </Container>
   );
 }

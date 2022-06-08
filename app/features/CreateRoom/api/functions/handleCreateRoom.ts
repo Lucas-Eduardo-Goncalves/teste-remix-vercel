@@ -26,6 +26,7 @@ export async function handleCreateRoom(request: Request, formData: FormData) {
     roomConfig: {
       viewCards: false,
       roomClosed: false,
+      sequencyName: "Fibonacci"
     },
     roomInfo: {
       createdAt: new Date(),

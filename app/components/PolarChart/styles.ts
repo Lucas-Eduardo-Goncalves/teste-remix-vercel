@@ -10,22 +10,21 @@ export const Container = styled(motion.div)`
   position: relative;
 `;
 
-export const Media = styled.div`
+export const MediaArea = styled.h2`
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
 
   position: absolute;
   bottom: 1rem;
   right: 1rem;
 
-  h2 {
-    font-size: 1.2rem;
-    line-height: 1.2rem;
-  }
+  font-size: 1.5rem;
+  font-weight: 600;
 
-  p {
-    font-size: 1.2rem;
-    line-height: 1.2rem;
-  }
+  height: 4rem;
+  width: 4rem;
+  border-radius: 2rem;
+
+  background-color: var(--background-light);
 `;

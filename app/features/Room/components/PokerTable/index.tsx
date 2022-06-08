@@ -9,28 +9,33 @@ import {
 } from "./styles";
 
 export function PokerTable({ usersInsideInTheRoom, userRole, roomConfig }: IPokerTableComponent) {
+
+  const usersInsideInTheRoomOrdenation = usersInsideInTheRoom.sort((a,b) => {
+    return a.timeEnteredRoom < b.timeEnteredRoom ? -1 : a.timeEnteredRoom > b.timeEnteredRoom ? 1 : 0
+  })
+
   return (
     <Container>
       <RowOne>
         <div />
-        {usersInsideInTheRoom[2] && (
+        {usersInsideInTheRoomOrdenation[2] && (
           <PokerTableCard
-            cardValue={usersInsideInTheRoom[2].card.value}
-            cardSelected={usersInsideInTheRoom[2].card.selected}
+            cardValue={usersInsideInTheRoomOrdenation[2].card.value}
+            cardSelected={usersInsideInTheRoomOrdenation[2].card.selected}
             cardView={roomConfig.viewCards}
           />
         )}
-        {usersInsideInTheRoom[0] && (
+        {usersInsideInTheRoomOrdenation[0] && (
           <PokerTableCard
-            cardValue={usersInsideInTheRoom[0].card.value}
-            cardSelected={usersInsideInTheRoom[0].card.selected}
+            cardValue={usersInsideInTheRoomOrdenation[0].card.value}
+            cardSelected={usersInsideInTheRoomOrdenation[0].card.selected}
             cardView={roomConfig.viewCards}
           />
         )}
-        {usersInsideInTheRoom[4] && (
+        {usersInsideInTheRoomOrdenation[4] && (
           <PokerTableCard
-            cardValue={usersInsideInTheRoom[4].card.value}
-            cardSelected={usersInsideInTheRoom[4].card.selected}
+            cardValue={usersInsideInTheRoomOrdenation[4].card.value}
+            cardSelected={usersInsideInTheRoomOrdenation[4].card.selected}
             cardView={roomConfig.viewCards}
           />
         )}
@@ -38,10 +43,10 @@ export function PokerTable({ usersInsideInTheRoom, userRole, roomConfig }: IPoke
       </RowOne>
 
       <RowTwo>
-        {usersInsideInTheRoom[6] ? (
+        {usersInsideInTheRoomOrdenation[6] ? (
           <PokerTableCard
-            cardValue={usersInsideInTheRoom[6].card.value}
-            cardSelected={usersInsideInTheRoom[6].card.selected}
+            cardValue={usersInsideInTheRoomOrdenation[6].card.value}
+            cardSelected={usersInsideInTheRoomOrdenation[6].card.selected}
             cardView={roomConfig.viewCards}
           />
         ): <div></div>}
@@ -62,10 +67,10 @@ export function PokerTable({ usersInsideInTheRoom, userRole, roomConfig }: IPoke
           )}
         </span>
 
-        {usersInsideInTheRoom[7] ? (
+        {usersInsideInTheRoomOrdenation[7] ? (
           <PokerTableCard
-            cardValue={usersInsideInTheRoom[7].card.value}
-            cardSelected={usersInsideInTheRoom[7].card.selected}
+            cardValue={usersInsideInTheRoomOrdenation[7].card.value}
+            cardSelected={usersInsideInTheRoomOrdenation[7].card.selected}
             cardView={roomConfig.viewCards}
           />
         ): <div></div>}
@@ -73,24 +78,24 @@ export function PokerTable({ usersInsideInTheRoom, userRole, roomConfig }: IPoke
 
       <RowThree>
         <div />
-        {usersInsideInTheRoom[3] && (
+        {usersInsideInTheRoomOrdenation[3] && (
           <PokerTableCard
-            cardValue={usersInsideInTheRoom[3].card.value}
-            cardSelected={usersInsideInTheRoom[3].card.selected}
+            cardValue={usersInsideInTheRoomOrdenation[3].card.value}
+            cardSelected={usersInsideInTheRoomOrdenation[3].card.selected}
             cardView={roomConfig.viewCards}
           />
         )}
-        {usersInsideInTheRoom[1] && (
+        {usersInsideInTheRoomOrdenation[1] && (
           <PokerTableCard
-            cardValue={usersInsideInTheRoom[1].card.value}
-            cardSelected={usersInsideInTheRoom[1].card.selected}
+            cardValue={usersInsideInTheRoomOrdenation[1].card.value}
+            cardSelected={usersInsideInTheRoomOrdenation[1].card.selected}
             cardView={roomConfig.viewCards}
           />
         )}
-        {usersInsideInTheRoom[5] && (
+        {usersInsideInTheRoomOrdenation[5] && (
           <PokerTableCard
-            cardValue={usersInsideInTheRoom[5].card.value}
-            cardSelected={usersInsideInTheRoom[5].card.selected}
+            cardValue={usersInsideInTheRoomOrdenation[5].card.value}
+            cardSelected={usersInsideInTheRoomOrdenation[5].card.selected}
             cardView={roomConfig.viewCards}
           />
         )}

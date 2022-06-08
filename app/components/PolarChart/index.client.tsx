@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
-import { Container, Media } from "./styles";
+import { Container, MediaArea } from "./styles";
 import type { IRoomResponse } from "~/global/types";
 
 type IClientPolarChartComponent = {
@@ -57,10 +57,9 @@ export function ClientPolarChart({ isVisibled, roomResponse }: IClientPolarChart
       )}
 
       {chartExists && (
-        <Media>
-          <h2>Media:</h2>
-          <p>{roomResponse.media}</p>
-        </Media>
+        <MediaArea title="Média dos valores">
+          {roomResponse.media.toFixed(0)}
+        </MediaArea>
       )}
     </Container>
   );

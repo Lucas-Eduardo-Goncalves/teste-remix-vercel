@@ -12,6 +12,7 @@ import { handleCloseRoom } from "./functions/handleCloseRoom";
 import { handleNewGame } from "./functions/handleNewGame";
 import { handleCard } from "./functions/handleCard";
 import { handleViewCards } from "./functions/handleViewCards";
+import { handleUpdateRoom } from "./functions/handleUpdateRoom";
 
 export async function actionController(request: Request, roomId: string | undefined) {
   // Check id room exists
@@ -37,8 +38,7 @@ export async function actionController(request: Request, roomId: string | undefi
       return await handleViewCards(request, formData, roomId);
 
     case "callFunctionHandleUpdateRoom":
-      console.log("eae")
-      return null;
+      return await handleUpdateRoom(request, formData, roomId);
 
     default:
       return null;

@@ -12,6 +12,7 @@ export type IUserInsideInTheRoom = {
 export type IRoomConfig = {
   roomClosed: boolean;
   viewCards: boolean;
+  sequencyName: string;
 };
 
 export type IRoomResponse = {
